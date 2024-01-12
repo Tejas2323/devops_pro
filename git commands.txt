@@ -6,6 +6,7 @@ ssh -i "devops.pem" ubuntu@ec2-13-48-31-36.eu-north-1.compute.amazonaws.com
 Token
 Tejas2323
 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
+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
 
 sudo systemctl stop jenkins
 sudo systemctl start jenkins
