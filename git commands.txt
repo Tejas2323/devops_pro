@@ -1,0 +1,115 @@
+To launch VM 
+cd /MyDocuments
+ssh -i "devops.pem" ubuntu@ec2-16-16-92-168.eu-north-1.compute.amazonaws.com
+ssh -i "devops.pem" ubuntu@ec2-13-48-31-36.eu-north-1.compute.amazonaws.com
+
+Token
+Tejas2323
+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
+
+sudo systemctl stop jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+
+
+https://github.com/gabrielf/maven-samples
+https://phoenixnap.com/kb/install-tomcat-ubuntu
+
+
+
+jacoco plugin
+
+To setup git (Make empty directory first, should be current working dir)
+git init
+
+To commit the file1
+git ls-files
+git add file1
+git status (Can check status of the files)
+git commit -m "Commit desc"
+git log (Shows all committed log)
+git log --oneline (One liner logs)
+
+git rm --cached FILENAME (To remove any tracked git file)
+
+
+Config user
+git config --global user.name tez
+git config --global user.email tez@devops.com
+
+git diff <commit id 1> <commit id 2> (Tells the differences/changes done between two commits)
+git diff v1.0 v2.0
+
+Two create versions
+git tag -a v1.0 <commit ID 1> -m "version 1 of whatsapp"
+git tag -a v2.0 <commit ID 2> -m "version 2 of whatsapp"
+(check git log --oneline)
+
+HEAD -> master (It says that this is current state of the code)
+
+--------------------------------------------------------------------------------
+.gitignore (Once this file is uploaded, it ignores certain files to be pushed to repo)
+
+example 
+cat > gitignore
+*.log
+abc.txt
+
+(This will ignore all the files that has .log extension and abc.txt file)
+
+--------------------------------------------------------------------------------
+
+Push the repo to github
+git remote add origin <github url>
+git remote -v (Lists remote gits collected)
+
+
+git branch (displays current working branch)
+git checkout branchname (changes current branch to branchname)
+git branch -M main (changes current branch to main)
+
+git push -u origin main
+
+To get password token, go to Github page -> settings -> developer settings
+-> personal access tokens -> Tokens (classic) -> Generate new token (classic)
+-> copy the token pass
+
+
+
+To push new file to github
+git add .
+git commit -m "Message"
+git push -u origin main
+
+To git merge branches
+git merge 
+
+To get latest files from github
+git pull
+
+Install Maven
+cd /tmp ; sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.tar.gz
+cd /tmp ; sudo tar -xzf apache-maven-3.9.1-bin.tar.gz -C  /opt/
+sudo mv /opt/apache-maven-3.9.1 /opt/maven
+sudo echo "MAVEN_HOME=\"/opt/maven\"" >> /etc/profile
+sudo echo "PATH=\$MAVEN_HOME/bin:\$PATH" >> /etc/profile
+source /etc/profile
+
+
+https://github.com/lerndevops/samplejavaapp.git
+
+cd /tmp ; sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.3/binaries/apache-maven-3.9.3-bin.tar.gz
+cd /tmp ; sudo tar -xzf apache-maven-3.9.3-bin.tar.gz -C  /opt/
+mv /opt/apache-maven-3.9.3 /opt/maven
+sudo echo "MAVEN_HOME=\"/opt/maven\"" >> /etc/profile
+sudo echo "PATH=\$MAVEN_HOME/bin:\$PATH" >> /etc/profile
+source /etc/profile
+
+Install Jenkins
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
